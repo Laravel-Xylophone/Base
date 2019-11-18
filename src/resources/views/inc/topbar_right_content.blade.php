@@ -1,7 +1,7 @@
 <!-- This file is used to store topbar (right) items -->
 
 {{--<li class="">
-    <a href="{{ url(config('backpack.base.route_prefix', 'admin')) }}">
+    <a href="{{ url(config('xylophone.base.route_prefix', 'admin')) }}">
         <i class="fa fa-cog"></i> Direct Link
     </a>
 </li>

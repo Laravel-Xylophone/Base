@@ -1,4 +1,4 @@
-@extends('backpack::layout')
+@extends('xylophone::layout')
 
 @section('after_styles')
 <style media="screen">
@@ -13,21 +13,21 @@
 <section class="content-header">
 
     <h1>
-        {{ trans('backpack::base.my_account') }}
+        {{ trans('xylophone::base.my_account') }}
     </h1>
 
     <ol class="breadcrumb">
 
         <li>
-            <a href="{{ backpack_url() }}">{{ config('backpack.base.project_name') }}</a>
+            <a href="{{ xylophone_url() }}">{{ config('xylophone.base.project_name') }}</a>
         </li>
 
         <li>
-            <a href="{{ route('backpack.account.info') }}">{{ trans('backpack::base.my_account') }}</a>
+            <a href="{{ route('xylophone.account.info') }}">{{ trans('xylophone::base.my_account') }}</a>
         </li>
 
         <li class="active">
-            {{ trans('backpack::base.change_password') }}
+            {{ trans('xylophone::base.change_password') }}
         </li>
 
     </ol>
@@ -38,11 +38,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-3">
-        @include('backpack::auth.account.sidemenu')
+        @include('xylophone::auth.account.sidemenu')
     </div>
     <div class="col-md-6">
 
-        <form class="form" action="{{ route('backpack.account.password') }}" method="post">
+        <form class="form" action="{{ route('xylophone.account.password') }}" method="post">
 
             {!! csrf_field() !!}
 
@@ -68,7 +68,7 @@
 
                     <div class="form-group">
                         @php
-                            $label = trans('backpack::base.old_password');
+                            $label = trans('xylophone::base.old_password');
                             $field = 'old_password';
                         @endphp
                         <label class="required">{{ $label }}</label>
@@ -77,7 +77,7 @@
 
                     <div class="form-group">
                         @php
-                            $label = trans('backpack::base.new_password');
+                            $label = trans('xylophone::base.new_password');
                             $field = 'new_password';
                         @endphp
                         <label class="required">{{ $label }}</label>
@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                         @php
-                            $label = trans('backpack::base.confirm_password');
+                            $label = trans('xylophone::base.confirm_password');
                             $field = 'confirm_password';
                         @endphp
                         <label class="required">{{ $label }}</label>
@@ -95,8 +95,8 @@
 
                     <div class="form-group m-b-0">
 
-                        <button type="submit" class="btn btn-success"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('backpack::base.change_password') }}</span></button>
-                        <a href="{{ backpack_url() }}" class="btn btn-default"><span class="ladda-label">{{ trans('backpack::base.cancel') }}</span></a>
+                        <button type="submit" class="btn btn-success"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('xylophone::base.change_password') }}</span></button>
+                        <a href="{{ xylophone_url() }}" class="btn btn-default"><span class="ladda-label">{{ trans('xylophone::base.cancel') }}</span></a>
 
                     </div>
 

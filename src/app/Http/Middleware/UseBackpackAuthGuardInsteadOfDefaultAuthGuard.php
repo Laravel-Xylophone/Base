@@ -17,7 +17,7 @@ class UseBackpackAuthGuardInsteadOfDefaultAuthGuard
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        app('auth')->setDefaultDriver(config('backpack.base.guard'));
+        app('auth')->setDefaultDriver(config('xylophone.base.guard'));
 
         return $next($request);
     }

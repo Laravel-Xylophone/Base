@@ -161,7 +161,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - password reset page now pre-populates the email field;
 - the standard footer is now transparent, it is not a primary piece of content, it shouldn’t stand out;
 - auth views are now prettier (see #330);
-- backpack_url() can now take parameters, just like url();
+- xylophone_url() can now take parameters, just like url();
 - auth view (login, register, reset password) use this new layout with no sidebar;
 - split layout into multiple views, so it’s easier to customize just one part of it;
 
@@ -216,7 +216,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Fixed
 - #303 - custom route command;
-- #305 - ```backpack_url()``` helper did not work properly with a starting slash;
+- #305 - ```xylophone_url()``` helper did not work properly with a starting slash;
 - #295 - spaces added to My Account form inputs by accident;
 
 
@@ -238,8 +238,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.9.4] - 2018-05-02
 
 ### Fixed
-- ```backpack_avatar_url()``` helper had a wrong function name existence declaration; merges #280;
-- ```backpack_avatar_url()``` helper now uses a custom function if it exists, otherwise an accessor; merges #281;
+- ```xylophone_avatar_url()``` helper had a wrong function name existence declaration; merges #280;
+- ```xylophone_avatar_url()``` helper now uses a custom function if it exists, otherwise an accessor; merges #281;
 
 ## [0.9.3] - 2018-04-17
 
@@ -358,10 +358,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.8.0] - 2017-11-06
 
 ## Added
-- backpack_url() helper that returns the URL prefixed by the configured string;
+- xylophone_url() helper that returns the URL prefixed by the configured string;
 - by default, gravatar instead of placehold image;
 - design facelift (introducing overlays that make the admin panel customizable and designs shareable; first overlay is called "Bold");
-- backpack_avatar_url() helper;
+- xylophone_avatar_url() helper;
 - views and logic for logged in user to change his account info;
 - views and logic for logged in user to change his password;
 

@@ -31,13 +31,13 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $guard = backpack_guard_name();
+        $guard = xylophone_guard_name();
 
         $this->middleware("guest:$guard");
 
         // Where to redirect users after login / registration.
         $this->redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo
-            : config('backpack.base.route_prefix', 'dashboard');
+            : config('xylophone.base.route_prefix', 'dashboard');
     }
 
     /**
@@ -49,14 +49,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $user_model_fqn = config('backpack.base.user_model_fqn');
+        $user_model_fqn = config('xylophone.base.user_model_fqn');
         $user = new $user_model_fqn();
         $users_table = $user->getTable();
-        $email_validation = backpack_authentication_column() == 'email' ? 'email|' : '';
+        $email_validation = xylophone_authentication_column() == 'email' ? 'email|' : '';
 
         return Validator::make($data, [
             'name'                             => 'required|max:255',
-            backpack_authentication_column()   => 'required|'.$email_validation.'max:255|unique:'.$users_table,
+            xylophone_authentication_column()   => 'required|'.$email_validation.'max:255|unique:'.$users_table,
             'password'                         => 'required|min:6|confirmed',
         ]);
     }
@@ -70,12 +70,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user_model_fqn = config('backpack.base.user_model_fqn');
+        $user_model_fqn = config('xylophone.base.user_model_fqn');
         $user = new $user_model_fqn();
 
         return $user->create([
             'name'                             => $data['name'],
-            backpack_authentication_column()   => $data[backpack_authentication_column()],
+            xylophone_authentication_column()   => $data[xylophone_authentication_column()],
             'password'                         => bcrypt($data['password']),
         ]);
     }
@@ -88,13 +88,13 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         // if registration is closed, deny access
-        if (!config('backpack.base.registration_open')) {
-            abort(403, trans('backpack::base.registration_closed'));
+        if (!config('xylophone.base.registration_open')) {
+            abort(403, trans('xylophone::base.registration_closed'));
         }
 
-        $this->data['title'] = trans('backpack::base.register'); // set the page title
+        $this->data['title'] = trans('xylophone::base.register'); // set the page title
 
-        return view('backpack::auth.register', $this->data);
+        return view('xylophone::auth.register', $this->data);
     }
 
     /**
@@ -107,8 +107,8 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         // if registration is closed, deny access
-        if (!config('backpack.base.registration_open')) {
-            abort(403, trans('backpack::base.registration_closed'));
+        if (!config('xylophone.base.registration_open')) {
+            abort(403, trans('xylophone::base.registration_closed'));
         }
 
         $this->validator($request->all())->validate();
@@ -128,6 +128,6 @@ class RegisterController extends Controller
      */
     protected function guard()
     {
-        return backpack_auth();
+        return xylophone_auth();
     }
 }

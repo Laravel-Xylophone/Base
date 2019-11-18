@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +14,7 @@ class AddCustomRouteContent extends Command
      *
      * @var string
      */
-    protected $signature = 'backpack:base:add-custom-route
+    protected $signature = 'xylophone:base:add-custom-route
                                 {code : HTML/PHP code that registers a route. Use either single quotes or double quotes. Never both. }';
 
     /**
@@ -22,7 +22,7 @@ class AddCustomRouteContent extends Command
      *
      * @var string
      */
-    protected $description = 'Add HTML/PHP code to the routes/backpack/custom.php file';
+    protected $description = 'Add HTML/PHP code to the routes/xylophone/custom.php file';
 
     /**
      * Create a new command instance.
@@ -41,8 +41,8 @@ class AddCustomRouteContent extends Command
      */
     public function handle()
     {
-        $path = 'routes/backpack/custom.php';
-        $disk_name = config('backpack.base.root_disk_name');
+        $path = 'routes/xylophone/custom.php';
+        $disk_name = config('xylophone.base.root_disk_name');
         $disk = Storage::disk($disk_name);
         $code = $this->argument('code');
 
@@ -62,7 +62,7 @@ class AddCustomRouteContent extends Command
                 $this->error('Could not write to file: '.$path);
             }
         } else {
-            $command = 'php artisan vendor:publish --provider="Backpack\Base\BaseServiceProvider" --tag=custom_routes';
+            $command = 'php artisan vendor:publish --provider="Xylophone\Base\BaseServiceProvider" --tag=custom_routes';
 
             $process = new Process($command, null, null, null, 300, null);
 

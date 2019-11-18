@@ -36,9 +36,9 @@ class CheckIfAdmin
     private function respondToUnauthorizedRequest($request)
     {
         if ($request->ajax() || $request->wantsJson()) {
-            return response(trans('backpack::base.unauthorized'), 401);
+            return response(trans('xylophone::base.unauthorized'), 401);
         } else {
-            return redirect()->guest(backpack_url('login'));
+            return redirect()->guest(xylophone_url('login'));
         }
     }
 
@@ -52,11 +52,11 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (backpack_auth()->guest()) {
+        if (xylophone_auth()->guest()) {
             return $this->respondToUnauthorizedRequest($request);
         }
 
-        if (!$this->checkIfUserIsAdmin(backpack_user())) {
+        if (!$this->checkIfUserIsAdmin(xylophone_user())) {
             return $this->respondToUnauthorizedRequest($request);
         }
 

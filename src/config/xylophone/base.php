@@ -40,8 +40,8 @@ return [
 
     // Overlays - CSS files that change the look and feel of the admin panel
     'overlays' => [
-        'vendor/backpack/base/backpack.bold.css',
-        'vendor/backpack/base/backpack.content.is.king.css',
+        'vendor/xylophone/base/xylophone.bold.css',
+        'vendor/xylophone/base/xylophone.content.is.king.css',
     ],
 
     /*
@@ -56,7 +56,7 @@ return [
     | By default the registration is open only on localhost.
     */
 
-    'registration_open' => env('BACKPACK_REGISTRATION_OPEN', env('APP_ENV') === 'local'),
+    'registration_open' => env('XYLOPHONE_REGISTRATION_OPEN', env('APP_ENV') === 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     */
 
     // The prefix used in all base routes (the 'admin' in admin/dashboard)
-    // You can make sure all your URLs use this prefix by using the backpack_url() helper instead of url()
+    // You can make sure all your URLs use this prefix by using the xylophone_url() helper instead of url()
     'route_prefix' => 'admin',
 
     // Set this to false if you would like to use your own AuthController and PasswordController
@@ -87,7 +87,7 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => App\Models\BackpackUser::class,
+    'user_model_fqn' => App\Models\XylophoneUser::class,
 
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of clases
@@ -99,7 +99,7 @@ return [
 
     // Alias for that middleware
     'middleware_key' => 'admin',
-    // Note: It's recommended to use the backpack_middleware() helper everywhere, which pulls this key for you.
+    // Note: It's recommended to use the xylophone_middleware() helper everywhere, which pulls this key for you.
 
     // Username column for authentication
     // The Backpack default is the same as the Laravel default (email)
@@ -149,5 +149,5 @@ return [
     |
     */
 
-    'license_code' => env('BACKPACK_LICENSE', false),
+    'license_code' => env('XYLOPHONE_LICENSE', false),
 ];

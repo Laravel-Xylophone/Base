@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('backpack_url')) {
+if (!function_exists('xylophone_url')) {
     /**
      * Appends the configured backpack prefix and returns
      * the URL using the standard Laravel helpers.
@@ -9,43 +9,43 @@ if (!function_exists('backpack_url')) {
      *
      * @return string
      */
-    function backpack_url($path = null, $parameters = [], $secure = null)
+    function xylophone_url($path = null, $parameters = [], $secure = null)
     {
         $path = !$path || (substr($path, 0, 1) == '/') ? $path : '/'.$path;
 
-        return url(config('backpack.base.route_prefix', 'admin').$path, $parameters = [], $secure = null);
+        return url(config('xylophone.base.route_prefix', 'admin').$path, $parameters = [], $secure = null);
     }
 }
 
-if (!function_exists('backpack_authentication_column')) {
+if (!function_exists('xylophone_authentication_column')) {
     /**
      * Return the username column name.
      * The Laravel default (and Backpack default) is 'email'.
      *
      * @return string
      */
-    function backpack_authentication_column()
+    function xylophone_authentication_column()
     {
-        return config('backpack.base.authentication_column', 'email');
+        return config('xylophone.base.authentication_column', 'email');
     }
 }
 
-if (!function_exists('backpack_users_have_email')) {
+if (!function_exists('xylophone_users_have_email')) {
     /**
      * Check if the email column is present on the user table.
      *
      * @return string
      */
-    function backpack_users_have_email()
+    function xylophone_users_have_email()
     {
-        $user_model_fqn = config('backpack.base.user_model_fqn');
+        $user_model_fqn = config('xylophone.base.user_model_fqn');
         $user = new $user_model_fqn();
 
         return \Schema::hasColumn($user->getTable(), 'email');
     }
 }
 
-if (!function_exists('backpack_avatar_url')) {
+if (!function_exists('xylophone_avatar_url')) {
     /**
      * Returns the avatar URL of a user.
      *
@@ -53,14 +53,14 @@ if (!function_exists('backpack_avatar_url')) {
      *
      * @return string
      */
-    function backpack_avatar_url($user)
+    function xylophone_avatar_url($user)
     {
         $firstLetter = $user->getAttribute('name') ? $user->name[0] : 'A';
         $placeholder = 'https://placehold.it/160x160/00a65a/ffffff/&text='.$firstLetter;
 
-        switch (config('backpack.base.avatar_type')) {
+        switch (config('xylophone.base.avatar_type')) {
             case 'gravatar':
-                if (backpack_users_have_email()) {
+                if (xylophone_users_have_email()) {
                     return Gravatar::fallback('https://placehold.it/160x160/00a65a/ffffff/&text='.$firstLetter)->get($user->email);
                 } else {
                     return $placeholder;
@@ -72,13 +72,13 @@ if (!function_exists('backpack_avatar_url')) {
                 break;
 
             default:
-                return method_exists($user, config('backpack.base.avatar_type')) ? $user->{config('backpack.base.avatar_type')}() : $user->{config('backpack.base.avatar_type')};
+                return method_exists($user, config('xylophone.base.avatar_type')) ? $user->{config('xylophone.base.avatar_type')}() : $user->{config('xylophone.base.avatar_type')};
                 break;
         }
     }
 }
 
-if (!function_exists('backpack_middleware')) {
+if (!function_exists('xylophone_middleware')) {
     /**
      * Return the key of the middleware used across Backpack.
      * That middleware checks if the visitor is an admin.
@@ -87,44 +87,44 @@ if (!function_exists('backpack_middleware')) {
      *
      * @return string
      */
-    function backpack_middleware()
+    function xylophone_middleware()
     {
-        return config('backpack.base.middleware_key', 'admin');
+        return config('xylophone.base.middleware_key', 'admin');
     }
 }
 
-if (!function_exists('backpack_guard_name')) {
+if (!function_exists('xylophone_guard_name')) {
     /*
      * Returns the name of the guard defined
      * by the application config
      */
-    function backpack_guard_name()
+    function xylophone_guard_name()
     {
-        return config('backpack.base.guard', config('auth.defaults.guard'));
+        return config('xylophone.base.guard', config('auth.defaults.guard'));
     }
 }
 
-if (!function_exists('backpack_auth')) {
+if (!function_exists('xylophone_auth')) {
     /*
      * Returns the user instance if it exists
      * of the currently authenticated admin
      * based off the defined guard.
      */
-    function backpack_auth()
+    function xylophone_auth()
     {
-        return \Auth::guard(backpack_guard_name());
+        return \Auth::guard(xylophone_guard_name());
     }
 }
 
-if (!function_exists('backpack_user')) {
+if (!function_exists('xylophone_user')) {
     /*
      * Returns back a user instance without
      * the admin guard, however allows you
      * to pass in a custom guard if you like.
      */
-    function backpack_user()
+    function xylophone_user()
     {
-        return backpack_auth()->user();
+        return xylophone_auth()->user();
     }
 }
 

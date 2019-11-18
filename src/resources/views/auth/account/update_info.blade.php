@@ -1,4 +1,4 @@
-@extends('backpack::layout')
+@extends('xylophone::layout')
 
 @section('after_styles')
 <style media="screen">
@@ -13,21 +13,21 @@
 <section class="content-header">
 
     <h1>
-        {{ trans('backpack::base.my_account') }}
+        {{ trans('xylophone::base.my_account') }}
     </h1>
 
     <ol class="breadcrumb">
 
         <li>
-            <a href="{{ backpack_url() }}">{{ config('backpack.base.project_name') }}</a>
+            <a href="{{ xylophone_url() }}">{{ config('xylophone.base.project_name') }}</a>
         </li>
 
         <li>
-            <a href="{{ route('backpack.account.info') }}">{{ trans('backpack::base.my_account') }}</a>
+            <a href="{{ route('xylophone.account.info') }}">{{ trans('xylophone::base.my_account') }}</a>
         </li>
 
         <li class="active">
-            {{ trans('backpack::base.update_account_info') }}
+            {{ trans('xylophone::base.update_account_info') }}
         </li>
 
     </ol>
@@ -38,11 +38,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-3">
-        @include('backpack::auth.account.sidemenu')
+        @include('xylophone::auth.account.sidemenu')
     </div>
     <div class="col-md-6">
 
-        <form class="form" action="{{ route('backpack.account.info') }}" method="post">
+        <form class="form" action="{{ route('xylophone.account.info') }}" method="post">
 
             {!! csrf_field() !!}
 
@@ -68,7 +68,7 @@
 
                     <div class="form-group">
                         @php
-                            $label = trans('backpack::base.name');
+                            $label = trans('xylophone::base.name');
                             $field = 'name';
                         @endphp
                         <label class="required">{{ $label }}</label>
@@ -77,16 +77,16 @@
 
                     <div class="form-group">
                         @php
-                            $label = config('backpack.base.authentication_column_name');
-                            $field = backpack_authentication_column();
+                            $label = config('xylophone.base.authentication_column_name');
+                            $field = xylophone_authentication_column();
                         @endphp
                         <label class="required">{{ $label }}</label>
-                        <input required class="form-control" type="{{ backpack_authentication_column()=='email'?'email':'text' }}" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
+                        <input required class="form-control" type="{{ xylophone_authentication_column()=='email'?'email':'text' }}" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
                     </div>
 
                     <div class="form-group m-b-0">
-                        <button type="submit" class="btn btn-success"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('backpack::base.save') }}</span></button>
-                        <a href="{{ backpack_url() }}" class="btn btn-default"><span class="ladda-label">{{ trans('backpack::base.cancel') }}</span></a>
+                        <button type="submit" class="btn btn-success"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('xylophone::base.save') }}</span></button>
+                        <a href="{{ xylophone_url() }}" class="btn btn-default"><span class="ladda-label">{{ trans('xylophone::base.cancel') }}</span></a>
                     </div>
 
                 </div>

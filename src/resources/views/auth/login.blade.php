@@ -1,16 +1,16 @@
-@extends('backpack::layout_guest')
+@extends('xylophone::layout_guest')
 
 @section('content')
     <div class="row m-t-40">
         <div class="col-md-4 col-md-offset-4">
-            <h3 class="text-center m-b-20">{{ trans('backpack::base.login') }}</h3>
+            <h3 class="text-center m-b-20">{{ trans('xylophone::base.login') }}</h3>
             <div class="box">
                 <div class="box-body">
-                    <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.login') }}">
+                    <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('xylophone.auth.login') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has($username) ? ' has-error' : '' }}">
-                            <label class="control-label">{{ config('backpack.base.authentication_column_name') }}</label>
+                            <label class="control-label">{{ config('xylophone.base.authentication_column_name') }}</label>
 
                             <div>
                                 <input type="text" class="form-control" name="{{ $username }}" value="{{ old($username) }}">
@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="control-label">{{ trans('backpack::base.password') }}</label>
+                            <label class="control-label">{{ trans('xylophone::base.password') }}</label>
 
                             <div>
                                 <input type="password" class="form-control" name="password">
@@ -41,7 +41,7 @@
                             <div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> {{ trans('backpack::base.remember_me') }}
+                                        <input type="checkbox" name="remember"> {{ trans('xylophone::base.remember_me') }}
                                     </label>
                                 </div>
                             </div>
@@ -50,18 +50,18 @@
                         <div class="form-group">
                             <div>
                                 <button type="submit" class="btn btn-block btn-primary">
-                                    {{ trans('backpack::base.login') }}
+                                    {{ trans('xylophone::base.login') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            @if (backpack_users_have_email())
-                <div class="text-center m-t-10"><a href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a></div>
+            @if (xylophone_users_have_email())
+                <div class="text-center m-t-10"><a href="{{ route('xylophone.auth.password.reset') }}">{{ trans('xylophone::base.forgot_your_password') }}</a></div>
             @endif
-            @if (config('backpack.base.registration_open'))
-                <div class="text-center m-t-10"><a href="{{ route('backpack.auth.register') }}">{{ trans('backpack::base.register') }}</a></div>
+            @if (config('xylophone.base.registration_open'))
+                <div class="text-center m-t-10"><a href="{{ route('xylophone.auth.register') }}">{{ trans('xylophone::base.register') }}</a></div>
             @endif
         </div>
     </div>

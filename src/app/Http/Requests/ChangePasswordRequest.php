@@ -15,7 +15,7 @@ class ChangePasswordRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return xylophone_auth()->check();
     }
 
     /**
@@ -43,8 +43,8 @@ class ChangePasswordRequest extends FormRequest
     {
         $validator->after(function ($validator) {
             // check old password matches
-            if (!Hash::check($this->input('old_password'), backpack_auth()->user()->password)) {
-                $validator->errors()->add('old_password', trans('backpack::base.old_password_incorrect'));
+            if (!Hash::check($this->input('old_password'), xylophone_auth()->user()->password)) {
+                $validator->errors()->add('old_password', trans('xylophone::base.old_password_incorrect'));
             }
         });
     }

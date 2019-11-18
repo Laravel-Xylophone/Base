@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    @include('backpack::inc.head')
+    @include('xylophone::inc.head')
 </head>
-<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini">
+<body class="hold-transition {{ config('xylophone.base.skin') }} sidebar-mini">
 	<script type="text/javascript">
 		/* Recover sidebar state */
 		(function () {
@@ -16,11 +16,11 @@
     <!-- Site wrapper -->
     <div class="wrapper">
 
-      @include('backpack::inc.main_header')
+      @include('xylophone::inc.main_header')
 
       <!-- =============================================== -->
 
-      @include('backpack::inc.sidebar')
+      @include('xylophone::inc.sidebar')
 
       <!-- =============================================== -->
 
@@ -40,7 +40,7 @@
       <!-- /.content-wrapper -->
 
       <footer class="main-footer text-sm clearfix">
-        @include('backpack::inc.footer')
+        @include('xylophone::inc.footer')
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -49,8 +49,8 @@
     @yield('before_scripts')
     @stack('before_scripts')
 
-    @include('backpack::inc.scripts')
-    @include('backpack::inc.alerts')
+    @include('xylophone::inc.scripts')
+    @include('xylophone::inc.alerts')
 
     @yield('after_scripts')
     @stack('after_scripts')

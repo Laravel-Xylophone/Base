@@ -1,15 +1,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-@if (config('backpack.base.meta_robots_content'))
-<meta name="robots" content="{{ config('backpack.base.meta_robots_content', 'noindex, nofollow') }}">
+@if (config('xylophone.base.meta_robots_content'))
+<meta name="robots" content="{{ config('xylophone.base.meta_robots_content', 'noindex, nofollow') }}">
 @endif
 
 {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <title>
-  {{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' Admin' : config('backpack.base.project_name').' Admin' }}
+  {{ isset($title) ? $title.' :: '.config('xylophone.base.project_name').' Admin' : config('xylophone.base.project_name').' Admin' }}
 </title>
 
 @yield('before_styles')
@@ -31,9 +31,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 <!-- BackPack Base CSS -->
-<link rel="stylesheet" href="{{ asset('vendor/backpack/base/backpack.base.css') }}?v=3">
-@if (config('backpack.base.overlays') && count(config('backpack.base.overlays')))
-    @foreach (config('backpack.base.overlays') as $overlay)
+<link rel="stylesheet" href="{{ asset('vendor/backpack/base/xylophone.base.css') }}?v=3">
+@if (config('xylophone.base.overlays') && count(config('xylophone.base.overlays')))
+    @foreach (config('xylophone.base.overlays') as $overlay)
     <link rel="stylesheet" href="{{ asset($overlay) }}">
     @endforeach
 @endif

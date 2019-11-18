@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    @include('backpack::inc.head')
+    @include('xylophone::inc.head')
 </head>
-<body class="hold-transition {{ config('backpack.base.skin') }} fixed">
+<body class="hold-transition {{ config('xylophone.base.skin') }} fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
       <!-- Content Wrapper. Contains page content -->
@@ -23,7 +23,7 @@
       <!-- /.content-wrapper -->
 
       <footer class="main-footer m-l-0 text-sm">
-        @include('backpack::inc.footer')
+        @include('xylophone::inc.footer')
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -32,8 +32,8 @@
     @yield('before_scripts')
     @stack('before_scripts')
 
-    @include('backpack::inc.scripts')
-    @include('backpack::inc.alerts')
+    @include('xylophone::inc.scripts')
+    @include('xylophone::inc.alerts')
 
     @yield('after_scripts')
     @stack('after_scripts')

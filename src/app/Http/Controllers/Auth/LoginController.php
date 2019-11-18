@@ -31,7 +31,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $guard = backpack_guard_name();
+        $guard = xylophone_guard_name();
 
         $this->middleware("guest:$guard", ['except' => 'logout']);
 
@@ -41,15 +41,15 @@ class LoginController extends Controller
 
         // If not logged in redirect here.
         $this->loginPath = property_exists($this, 'loginPath') ? $this->loginPath
-            : backpack_url('login');
+            : xylophone_url('login');
 
         // Redirect here after successful login.
         $this->redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo
-            : backpack_url('dashboard');
+            : xylophone_url('dashboard');
 
         // Redirect here after logout.
         $this->redirectAfterLogout = property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout
-            : backpack_url();
+            : xylophone_url();
     }
 
     /**
@@ -59,7 +59,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return backpack_authentication_column();
+        return xylophone_authentication_column();
     }
 
     /**
@@ -85,7 +85,7 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        return backpack_auth();
+        return xylophone_auth();
     }
 
     // -------------------------------------------------------
@@ -99,9 +99,9 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        $this->data['title'] = trans('backpack::base.login'); // set the page title
+        $this->data['title'] = trans('xylophone::base.login'); // set the page title
         $this->data['username'] = $this->username();
 
-        return view('backpack::auth.login', $this->data);
+        return view('xylophone::auth.login', $this->data);
     }
 }

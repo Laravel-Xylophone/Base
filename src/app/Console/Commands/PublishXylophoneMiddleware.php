@@ -1,24 +1,24 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class PublishBackpackUserModel extends GeneratorCommand
+class PublishXylophoneMiddleware extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'backpack:base:publish-user-model';
+    protected $signature = 'xylophone:base:publish-middleware';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish the BackpackUser model to App\Models\BackpackUser';
+    protected $description = 'Publish the CheckIfAdmin middleware to App\Http\Middleware\CheckIfAdmin';
 
     /**
      * Get the stub file for the generator.
@@ -27,7 +27,7 @@ class PublishBackpackUserModel extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/../../Models/BackpackUser.php';
+        return __DIR__.'/../../Http/Middleware/CheckIfAdmin.php';
     }
 
     /**
@@ -37,10 +37,10 @@ class PublishBackpackUserModel extends GeneratorCommand
      */
     public function handle()
     {
-        $destination_path = $this->laravel['path'].'/Models/BackpackUser.php';
+        $destination_path = $this->laravel['path'].'/Http/Middleware/CheckIfAdmin.php';
 
         if ($this->files->exists($destination_path)) {
-            $this->error('BackpackUser model already exists!');
+            $this->error('CheckIfAdmin middleware already exists!');
 
             return false;
         }
@@ -49,7 +49,7 @@ class PublishBackpackUserModel extends GeneratorCommand
 
         $this->files->put($destination_path, $this->buildClass());
 
-        $this->info($this->laravel->getNamespace().'Models\BackpackUser.php created successfully.');
+        $this->info($this->laravel->getNamespace().'Http\Middleware\CheckIfAdmin.php created successfully.');
     }
 
     /**
@@ -77,11 +77,7 @@ class PublishBackpackUserModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Backpack\Base\app\Models;', $this->laravel->getNamespace().'Models;', $stub);
-
-        if (!$this->files->exists($this->laravel['path'].'/User.php') && $this->files->exists($this->laravel['path'].'/Models/User.php')) {
-            $stub = str_replace($this->laravel->getNamespace().'User', $this->laravel->getNamespace().'Models\User', $stub);
-        }
+        $stub = str_replace('Xylophone\Base\app\\', $this->laravel->getNamespace(), $stub);
 
         return $stub;
     }

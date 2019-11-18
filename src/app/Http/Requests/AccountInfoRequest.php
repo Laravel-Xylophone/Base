@@ -15,7 +15,7 @@ class AccountInfoRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return xylophone_auth()->check();
     }
 
     /**
@@ -25,7 +25,7 @@ class AccountInfoRequest extends FormRequest
      */
     public function validationData()
     {
-        return $this->only(backpack_authentication_column(), 'name');
+        return $this->only(xylophone_authentication_column(), 'name');
     }
 
     /**
@@ -35,12 +35,12 @@ class AccountInfoRequest extends FormRequest
      */
     public function rules()
     {
-        $user = backpack_auth()->user();
+        $user = xylophone_auth()->user();
 
         return [
-            backpack_authentication_column() => [
+            xylophone_authentication_column() => [
                 'required',
-                backpack_authentication_column() == 'email' ? 'email' : '',
+                xylophone_authentication_column() == 'email' ? 'email' : '',
                 Rule::unique($user->getTable())->ignore($user->getKey(), $user->getKeyName()),
             ],
             'name' => 'required',

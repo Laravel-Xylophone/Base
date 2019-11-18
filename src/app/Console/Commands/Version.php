@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -13,7 +13,7 @@ class Version extends Command
      *
      * @var string
      */
-    protected $signature = 'backpack:base:version';
+    protected $signature = 'xylophone:base:version';
 
     /**
      * The console command description.
@@ -32,8 +32,8 @@ class Version extends Command
         $this->comment('### PHP VERSION:');
         $this->runConsoleCommand('php -v');
 
-        $this->comment('### BACKPACK PACKAGES VERSION:');
-        $this->runConsoleCommand('composer show | grep "backpack\|laravel/framework"');
+        $this->comment('### XYLOPHONE PACKAGES VERSION:');
+        $this->runConsoleCommand('composer show | grep "Xylophone\|laravel/framework"');
 
         $this->comment('### MYSQL VERSION:');
         $this->runConsoleCommand('mysql --version');

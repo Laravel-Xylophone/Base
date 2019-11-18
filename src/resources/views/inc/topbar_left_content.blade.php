@@ -6,12 +6,12 @@
     </a>
     <ul class="dropdown-menu" role="menu">
         <li class="">
-            <a href="{{ url(config('backpack.base.route_prefix', 'admin')) }}">
+            <a href="{{ url(config('xylophone.base.route_prefix', 'admin')) }}">
                 <i class="fa fa-list"></i> Dropdown Item
             </a>
         </li>
         <li class="">
-            <a href="{{ url(config('backpack.base.route_prefix', 'admin')) }}">
+            <a href="{{ url(config('xylophone.base.route_prefix', 'admin')) }}">
                 <i class="fa fa-list"></i> Dropdown Item
             </a>
         </li>
@@ -19,7 +19,7 @@
 </li>
 
 <li class="">
-    <a href="{{ url(config('backpack.base.route_prefix', 'admin')) }}">
+    <a href="{{ url(config('xylophone.base.route_prefix', 'admin')) }}">
         <i class="fa fa-cog"></i> Direct Link
     </a>
 </li>--}}

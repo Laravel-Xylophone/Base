@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,7 +11,7 @@ class CreateUser extends Command
      *
      * @var string
      */
-    protected $signature = 'backpack:base:user
+    protected $signature = 'xylophone:base:user
                             {--N|name= : The name of the new user}
                             {--E|email= : The user\'s email address}
                             {--P|password= : User\'s password}
@@ -49,7 +49,7 @@ class CreateUser extends Command
             $password = bcrypt($password);
         }
 
-        $auth = config('backpack.base.user_model_fqn', 'App\User');
+        $auth = config('xylophone.base.user_model_fqn', 'App\User');
         $user = new $auth();
         $user->name = $name;
         $user->email = $email;

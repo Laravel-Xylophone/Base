@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -15,7 +15,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $signature = 'backpack:base:install
+    protected $signature = 'xylophone:base:install
                                 {--timeout=300} : How many seconds to allow each process to run.
                                 {--debug} : Show process output or not. Useful for debugging.';
 
@@ -24,7 +24,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $description = 'Require dev packages and publish files for Backpack\Base to work';
+    protected $description = 'Require dev packages and publish files for Xylophone\Base to work';
 
     /**
      * Create a new command instance.
@@ -45,17 +45,17 @@ class Install extends Command
     {
         $this->progressBar = $this->output->createProgressBar(8);
         $this->progressBar->start();
-        $this->info(" Backpack\Base installation started. Please wait...");
+        $this->info(" Xylophone\Base installation started. Please wait...");
         $this->progressBar->advance();
 
-        $this->line(' Installing backpack/generators');
-        $this->executeProcess('composer require backpack/generators:"1.2.*" --dev');
+        $this->line(' Installing xylophone/generators');
+        $this->executeProcess('composer require xylophone/generators:"1.2.*" --dev');
 
         $this->line(' Installing laracasts/generators');
         $this->executeProcess('composer require laracasts/generators:dev-master --dev');
 
         $this->line(' Publishing configs, langs, views and AdminLTE files');
-        $this->executeProcess('php artisan vendor:publish --provider="Backpack\Base\BaseServiceProvider" --tag=minimum');
+        $this->executeProcess('php artisan vendor:publish --provider="Xylophone\Base\BaseServiceProvider" --tag=minimum');
 
         $this->line(' Publishing config for notifications - prologue/alerts');
         $this->executeProcess('php artisan vendor:publish --provider="Prologue\Alerts\AlertsServiceProvider"');
@@ -63,14 +63,14 @@ class Install extends Command
         $this->line(" Generating users table (using Laravel's default migrations)");
         $this->executeProcess('php artisan migrate');
 
-        $this->line(" Creating App\Models\BackpackUser.php");
-        $this->executeProcess('php artisan backpack:base:publish-user-model');
+        $this->line(" Creating App\Models\XylophoneUser.php");
+        $this->executeProcess('php artisan xylophone:base:publish-user-model');
 
         $this->line(" Creating App\Http\Middleware\CheckIfAdmin.php");
-        $this->executeProcess('php artisan backpack:base:publish-middleware');
+        $this->executeProcess('php artisan xylophone:base:publish-middleware');
 
         $this->progressBar->finish();
-        $this->info(" Backpack\Base installation finished.");
+        $this->info(" Xylophone\Base installation finished.");
     }
 
     /**

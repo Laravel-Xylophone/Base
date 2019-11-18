@@ -1,4 +1,4 @@
-@extends(backpack_user() && (starts_with(\Request::path(), config('backpack.base.route_prefix'))) ? 'backpack::layout' : 'backpack::layout_guest')
+@extends(xylophone_user() && (starts_with(\Request::path(), config('xylophone.base.route_prefix'))) ? 'xylophone::layout' : 'xylophone::layout_guest')
 {{-- show error using sidebar layout if looged in AND on an admin page; otherwise use a blank page --}}
 
 @php

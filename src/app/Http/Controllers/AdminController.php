@@ -11,7 +11,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(backpack_middleware());
+        $this->middleware(xylophone_middleware());
     }
 
     /**
@@ -21,9 +21,9 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+        $this->data['title'] = trans('xylophone::base.dashboard'); // set the page title
 
-        return view('backpack::dashboard', $this->data);
+        return view('xylophone::dashboard', $this->data);
     }
 
     /**
@@ -34,6 +34,6 @@ class AdminController extends Controller
     public function redirect()
     {
         // The '/admin' route is not to be used as a page, because it breaks the menu's active state.
-        return redirect(backpack_url('dashboard'));
+        return redirect(xylophone_url('dashboard'));
     }
 }

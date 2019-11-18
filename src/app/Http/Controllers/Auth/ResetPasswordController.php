@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
      */
     public function redirectTo()
     {
-        return backpack_url();
+        return xylophone_url();
     }
 
     /**
@@ -43,16 +43,16 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $guard = backpack_guard_name();
+        $guard = xylophone_guard_name();
 
         $this->middleware("guest:$guard");
 
-        if (!backpack_users_have_email()) {
-            abort(501, trans('backpack::base.no_email_column'));
+        if (!xylophone_users_have_email()) {
+            abort(501, trans('xylophone::base.no_email_column'));
         }
 
         // where to redirect after password was reset
-        $this->redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo : config('backpack.base.route_prefix', 'admin').'/dashboard';
+        $this->redirectTo = property_exists($this, 'redirectTo') ? $this->redirectTo : config('xylophone.base.route_prefix', 'admin').'/dashboard';
     }
 
     // -------------------------------------------------------
@@ -71,9 +71,9 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('xylophone::base.reset_password'); // set the page title
 
-        return view('backpack::auth.passwords.reset', $this->data)->with(
+        return view('xylophone::auth.passwords.reset', $this->data)->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
@@ -85,7 +85,7 @@ class ResetPasswordController extends Controller
      */
     public function broker()
     {
-        $passwords = config('backpack.base.passwords', config('auth.defaults.passwords'));
+        $passwords = config('xylophone.base.passwords', config('auth.defaults.passwords'));
 
         return Password::broker($passwords);
     }
@@ -97,6 +97,6 @@ class ResetPasswordController extends Controller
      */
     protected function guard()
     {
-        return backpack_auth();
+        return xylophone_auth();
     }
 }

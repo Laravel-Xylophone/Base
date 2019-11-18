@@ -30,7 +30,7 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        $guard = backpack_guard_name();
+        $guard = xylophone_guard_name();
 
         $this->middleware("guest:$guard");
     }
@@ -46,9 +46,9 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('xylophone::base.reset_password'); // set the page title
 
-        return view('backpack::auth.passwords.email', $this->data);
+        return view('xylophone::auth.passwords.email', $this->data);
     }
 
     /**
@@ -58,7 +58,7 @@ class ForgotPasswordController extends Controller
      */
     public function broker()
     {
-        $passwords = config('backpack.base.passwords', config('auth.defaults.passwords'));
+        $passwords = config('xylophone.base.passwords', config('auth.defaults.passwords'));
 
         return Password::broker($passwords);
     }

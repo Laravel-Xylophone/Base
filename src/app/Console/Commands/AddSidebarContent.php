@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Console\Commands;
+namespace Xylophone\Base\app\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +12,7 @@ class AddSidebarContent extends Command
      *
      * @var string
      */
-    protected $signature = 'backpack:base:add-sidebar-content
+    protected $signature = 'xylophone:base:add-sidebar-content
                                 {code : HTML/PHP code that shows the sidebar item. Use either single quotes or double quotes. Never both. }';
 
     /**
@@ -39,8 +39,8 @@ class AddSidebarContent extends Command
      */
     public function handle()
     {
-        $path = 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php';
-        $disk_name = config('backpack.base.root_disk_name');
+        $path = 'resources/views/vendor/xylophone/base/inc/sidebar_content.blade.php';
+        $disk_name = config('xylophone.base.root_disk_name');
         $disk = Storage::disk($disk_name);
         $code = $this->argument('code');
 
@@ -53,7 +53,7 @@ class AddSidebarContent extends Command
                 $this->error('Could not write to sidebar_content file.');
             }
         } else {
-            $this->error("The sidebar_content file does not exist. Make sure Backpack\Base is properly installed.");
+            $this->error("The sidebar_content file does not exist. Make sure Xylophone\Base is properly installed.");
         }
     }
 }

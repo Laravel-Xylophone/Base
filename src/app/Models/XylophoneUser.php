@@ -1,12 +1,12 @@
 <?php
 
-namespace Backpack\Base\app\Models;
+namespace Xylophone\Base\app\Models;
 
 use App\User;
 use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
-class BackpackUser extends User
+class XylophoneUser extends User
 {
     use InheritsRelationsFromParentModel;
 
