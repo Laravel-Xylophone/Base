@@ -49,7 +49,7 @@ class Install extends Command
         $this->progressBar->advance();
 
         $this->line(' Installing xylophone/generators');
-        $this->executeProcess('composer require xylophone/generators:"1.2.*" --dev');
+        $this->executeProcess('composer require xylophone/generators:"*" --dev');
 
         $this->line(' Installing laracasts/generators');
         $this->executeProcess('composer require laracasts/generators:dev-master --dev');

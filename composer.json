@@ -1,7 +1,7 @@
 {
     "name": "xylophone/base",
     "type": "library",
-    "description": "Laravel Xylophone's base package, which offers admin authentication and a blank admin panel using AdminLTE, fork from Backpack/Base",
+    "description": "Laravel Xylophone's base package, which offers admin authentication and a blank admin panel using AdminLTE, fork from Xylophone/Base",
     "keywords": [
         "backpack",
         "base"
@@ -28,7 +28,7 @@
         "phpunit/phpunit": "~6.0",
         "scrutinizer/ocular": "~1.1",
         "squizlabs/php_codesniffer": "~2.3",
-        "backpack/generators": "^1.1",
+        "xylophone/generators": "^1.1",
         "laracasts/generators": "^1.1"
     },
     "autoload": {

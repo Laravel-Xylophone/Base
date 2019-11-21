@@ -1,24 +1,24 @@
-# Backpack\Base (for Backpack 3.x)
+# Xylophone\Base (for Xylophone 3.x)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/Laravel-Backpack/base/master.svg?style=flat-square)](https://travis-ci.org/Laravel-Backpack/base)
+[![Build Status](https://img.shields.io/travis/Laravel-Xylophone/base/master.svg?style=flat-square)](https://travis-ci.org/Laravel-Xylophone/base)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/base.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-backpack/crud/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/laravel-backpack/base.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-backpack/crud)
 [![Style CI](https://styleci.io/repos/52384487/shield)](https://styleci.io/repos/52384487)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Laravel Backpack v3.x's central package, which includes:
+Laravel Xylophone v3.x's central package, which includes:
 - admin login interface, using AdminLTE;
 - basic menu;
 - pretty error pages;
 - alerts system (notification bubbles);
 
-**Note: This package is only used by Backpack v3. Starting with Backpack v4, everything this package does is included in Backpack/CRUD - one package to rule them all.**
+**Note: This package is only used by Xylophone v3. Starting with Xylophone v4, everything this package does is included in Xylophone/CRUD - one package to rule them all.**
 
 
 > ### Security updates and breaking changes
-> Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
+> Please **[subscribe to the Xylophone Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 ![Example generated CRUD interface](https://backpackforlaravel.com/uploads/screenshots/base_login.png)
 
@@ -32,7 +32,7 @@ php artisan backpack:base:install
 ```
 
 2) Make sure the reset password emails have the correct reset link by adding these to your ```User``` model:
-- before class name ```use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;```
+- before class name ```use Xylophone\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;```
 - as a method inside the User class:
 ``` php
   /**
@@ -51,14 +51,14 @@ php artisan backpack:base:install
 
 
 ## Upgrading from Laravel 5.8 to Laravel 6
-- just upgrade your Laravel version and make sure you're running Backpack/Base 1.1.9 or higher;
+- just upgrade your Laravel version and make sure you're running Xylophone/Base 1.1.9 or higher;
 
 
 ## Upgrading from Laravel 5.7 to Laravel 5.8 (or from Base 1.0 to Base 1.1)
 - Upgrade to Laravel 5.8; you might need to change your ```backpack/crud``` dependency to ```3.6.*``` in your ```composer.json```;
-- in your ```App\Models\BackpackUser``` instead of ```Tightenco\Parental\HasParent```, please use ```Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel```; [here's the diff](https://github.com/Laravel-Backpack/Base/pull/362/files#diff-f075b83ebb2b1ef3ba84dec14b395607);
+- in your ```App\Models\XylophoneUser``` instead of ```Tightenco\Parental\HasParent```, please use ```Xylophone\Base\app\Models\Traits\InheritsRelationsFromParentModel```; [here's the diff](https://github.com/Laravel-Xylophone/Base/pull/362/files#diff-f075b83ebb2b1ef3ba84dec14b395607);
 - in your ```app/config/backpack/base.php``` please change your ```default_date_format``` and ```default_datetime_format``` to ```Do MMMM YYYY``` and ```Do MMMM YYYY, HH:mm``` respectively;
-- if you've overwritten ```inc/head.blade.php``` or ```inc/scripts.blade.php```, please make sure you [use the newest version of Bootstrap](https://github.com/Laravel-Backpack/Base/pull/362/files#diff-96ac3ea4d0cb85053acf44e3772eb5f1); they've fixed a security vulnerability (XSS);
+- if you've overwritten ```inc/head.blade.php``` or ```inc/scripts.blade.php```, please make sure you [use the newest version of Bootstrap](https://github.com/Laravel-Xylophone/Base/pull/362/files#diff-96ac3ea4d0cb85053acf44e3772eb5f1); they've fixed a security vulnerability (XSS);
 
 
 ## Usage 
@@ -89,7 +89,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 If you discover any security related issues, please email hello@tabacitu.ro instead of using the issue tracker.
 
-Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
+Please **[subscribe to the Xylophone Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 ## Credits
 
@@ -98,7 +98,7 @@ Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/ne
 
 ## License
 
-Backpack is free for non-commercial use and 49 EUR/project for commercial use. Please see [License File](LICENSE.md) and [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
+Xylophone is free for non-commercial use and 49 EUR/project for commercial use. Please see [License File](LICENSE.md) and [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
 
 ## Hire us
 

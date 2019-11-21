@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `Backpack\Base` will be documented in this file.
+All Notable changes to `Xylophone\Base` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
@@ -106,15 +106,15 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Removed
 - ```jenssegers/date``` dependency since ```nesbot/carbon``` v2 can now do the same thing;
-- ```Tightenco\Parental``` dependency; the trait we were using is now included as ```Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;```;
+- ```Tightenco\Parental``` dependency; the trait we were using is now included as ```Xylophone\Base\app\Models\Traits\InheritsRelationsFromParentModel;```;
 - Laravel 5.7 support;
 - Laravel 5.6 support;
 
 **Upgrade guide:**
 - Upgrade to Laravel 5.8; you might need to change your ```backpack/crud``` dependency to ```3.6.*``` in your ```composer.json```;
-- in your ```App\Models\BackpackUser``` instead of ```Tightenco\Parental\HasParent```, please use ```Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel```; [here's the diff](https://github.com/Laravel-Backpack/Base/pull/362/files#diff-f075b83ebb2b1ef3ba84dec14b395607);
+- in your ```App\Models\XylophoneUser``` instead of ```Tightenco\Parental\HasParent```, please use ```Xylophone\Base\app\Models\Traits\InheritsRelationsFromParentModel```; [here's the diff](https://github.com/Laravel-Xylophone/Base/pull/362/files#diff-f075b83ebb2b1ef3ba84dec14b395607);
 - in your ```app/config/backpack/base.php``` please change your ```default_date_format``` and ```default_datetime_format``` to ```Do MMMM YYYY``` and ```Do MMMM YYYY, HH:mm``` respectively;
-- if you've overwritten ```inc/head.blade.php``` or ```inc/scripts.blade.php```, please make sure you [use the newest version of Bootstrap](https://github.com/Laravel-Backpack/Base/pull/362/files#diff-96ac3ea4d0cb85053acf44e3772eb5f1); they've fixed a security vulnerability (XSS);
+- if you've overwritten ```inc/head.blade.php``` or ```inc/scripts.blade.php```, please make sure you [use the newest version of Bootstrap](https://github.com/Laravel-Xylophone/Base/pull/362/files#diff-96ac3ea4d0cb85053acf44e3772eb5f1); they've fixed a security vulnerability (XSS);
 
 
 ----
@@ -134,7 +134,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [1.0.2] - 2018-11-29
 
 ### Added
-- #345 - ```UseBackpackAuthGuardInsteadOfDefaultAuthGuard``` middleware, which allows developer to use ```@can``` statements inside backpack routes;
+- #345 - ```UseXylophoneAuthGuardInsteadOfDefaultAuthGuard``` middleware, which allows developer to use ```@can``` statements inside backpack routes;
 
 
 
@@ -147,7 +147,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [1.0.0] - 2018-11-22
 
 ### Added
-- ```BackpackUser``` model now picks up relationships from its parent model, ```App\User``` - see [PR #323](https://github.com/Laravel-Backpack/Base/pull/323);
+- ```XylophoneUser``` model now picks up relationships from its parent model, ```App\User``` - see [PR #323](https://github.com/Laravel-Xylophone/Base/pull/323);
 - two separate files: ```inc/topbar_left_content.blade.php``` and ```inc/topbar_right_content.blade.php``` where the user can specify additional content for the top menu;
 - added a layout_guest which has no sidebar and no top menu;
 
@@ -232,7 +232,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.9.5] - 2018-05-02
 
 ### Fixed
-- helpers are now loaded in the register function, to avoid undefined function errors in subsequent Backpack packages, where they're loaded before Base;
+- helpers are now loaded in the register function, to avoid undefined function errors in subsequent Xylophone packages, where they're loaded before Base;
 
 
 ## [0.9.4] - 2018-05-02
@@ -265,7 +265,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - flexbox css helper class;
 - support for HTML messages inside Alert bubbles, when triggered from PHP;
 - added publish lang command;
-- added command to publish only the minimum amount of files needed for Backpack to work;
+- added command to publish only the minimum amount of files needed for Xylophone to work;
 - ```sidebar_content.blade.php``` file, so that we can add sidebar items using a command
 - ```php artisan backpack:base:add-sidebar-content``` command;
 - ```php artisan backpack:base:add-custom-route``` command;
@@ -329,7 +329,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Upon installation, vendor path is calculated instead of relying on base_path() - merged #223, fixes #222;
 
 ## Added
-- BACKPACK_REGISTRATION_OPEN environment variable;
+- XYLOPHONE_REGISTRATION_OPEN environment variable;
 
 ## [0.8.3] - 2017-12-02
 
@@ -429,8 +429,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.7.18] - 2017-04-21
 
 ### Fixed
-- language files for all Backpack packages are now loaded by Backpack\Base, using pointer files; this fixes the language fallback system;
-- Backpack\Base language files no longer need publishing;
+- language files for all Xylophone packages are now loaded by Xylophone\Base, using pointer files; this fixes the language fallback system;
+- Xylophone\Base language files no longer need publishing;
 
 
 ## [0.7.17] - 2017-04-21
@@ -556,13 +556,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.6.16] - 2016-08-30
 
 ### Removed
-- Backpack/Base DOES NOT automatically include backpack/generators and laracasts/generators on --dev; composer does not permit installing require-dev dependencies of dependencies;
+- Xylophone/Base DOES NOT automatically include backpack/generators and laracasts/generators on --dev; composer does not permit installing require-dev dependencies of dependencies;
 
 
 ## [0.6.15] - 2016-08-30
 
 ### Added
-- Backpack/Base automatically includes backpack/generators and laracasts/generators on --dev.
+- Xylophone/Base automatically includes backpack/generators and laracasts/generators on --dev.
 
 
 ## [0.6.14] - 2016-08-29
@@ -662,7 +662,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 - Error views used AdminLTE and had menus, but were also used as the main application error pages. This could become a security issue if the admin isn't careful to shut down registration.
 - /login is no longer redirected to /admin/login
-- Backpack/Base no longer uses any routes outside the /admin/ prefix in order not to conflict with any catch-all routes (as developers will probably use with PageManager).
+- Xylophone/Base no longer uses any routes outside the /admin/ prefix in order not to conflict with any catch-all routes (as developers will probably use with PageManager).
 
 ### Removed
 - routes.php file - routes are now defined in the BaseServiceProvider, so the package can be easily dropped on top of a Laravel application folder;
@@ -828,4 +828,4 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [0.2.0] - 2016-02-23
 
 ### Added
-- Moved all controllers, views, config file, lang file for Laravel authentication into the package. Loading the package will allow the user to make use of Backpack authentication, instead of Laravel's default.
+- Moved all controllers, views, config file, lang file for Laravel authentication into the package. Loading the package will allow the user to make use of Xylophone authentication, instead of Laravel's default.
