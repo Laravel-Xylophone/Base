@@ -1,10 +1,10 @@
 <?php
 
-namespace Backpack\Base\app\Http\Middleware;
+namespace Xylophone\Base\app\Http\Middleware;
 
 use Closure;
 
-class UseBackpackAuthGuardInsteadOfDefaultAuthGuard
+class UseXylophoneAuthGuardInsteadOfDefaultAuthGuard
 {
     /**
      * Handle an incoming request.

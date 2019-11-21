@@ -1,11 +1,11 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Xylophone\Base\app\Http\Controllers\Auth;
 
 use Alert;
-use Backpack\Base\app\Http\Controllers\Controller;
-use Backpack\Base\app\Http\Requests\AccountInfoRequest;
-use Backpack\Base\app\Http\Requests\ChangePasswordRequest;
+use Xylophone\Base\app\Http\Controllers\Controller;
+use Xylophone\Base\app\Http\Requests\AccountInfoRequest;
+use Xylophone\Base\app\Http\Requests\ChangePasswordRequest;
 use Illuminate\Support\Facades\Hash;
 
 class MyAccountController extends Controller

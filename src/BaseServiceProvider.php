@@ -11,13 +11,13 @@ class BaseServiceProvider extends ServiceProvider
     const VERSION = '1.0.0';
 
     protected $commands = [
-        \Backpack\Base\app\Console\Commands\Install::class,
-        \Backpack\Base\app\Console\Commands\AddSidebarContent::class,
-        \Backpack\Base\app\Console\Commands\AddCustomRouteContent::class,
-        \Backpack\Base\app\Console\Commands\Version::class,
-        \Backpack\Base\app\Console\Commands\CreateUser::class,
-        \Backpack\Base\app\Console\Commands\PublishBackpackUserModel::class,
-        \Backpack\Base\app\Console\Commands\PublishBackpackMiddleware::class,
+        \Xylophone\Base\app\Console\Commands\Install::class,
+        \Xylophone\Base\app\Console\Commands\AddSidebarContent::class,
+        \Xylophone\Base\app\Console\Commands\AddCustomRouteContent::class,
+        \Xylophone\Base\app\Console\Commands\Version::class,
+        \Xylophone\Base\app\Console\Commands\CreateUser::class,
+        \Xylophone\Base\app\Console\Commands\PublishXylophoneUserModel::class,
+        \Xylophone\Base\app\Console\Commands\PublishXylophoneMiddleware::class,
     ];
 
     /**
@@ -35,7 +35,7 @@ class BaseServiceProvider extends ServiceProvider
     public $routeFilePath = '/routes/xylophone/base.php';
 
     /**
-     * Where custom routes can be written, and will be registered by Backpack.
+     * Where custom routes can be written, and will be registered by Xylophone.
      *
      * @var string
      */
@@ -57,9 +57,9 @@ class BaseServiceProvider extends ServiceProvider
             $this->loadViewsFrom($customViewsFolder, 'xylophone');
         }
         // - then the stock views that come with the package, in case a published view might be missing
-        $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'backpack');
+        $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'xylophone');
 
-        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'backpack');
+        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'xylophone');
 
         // use the vendor configuration file as fallback
         $this->mergeConfigFrom(
@@ -81,7 +81,7 @@ class BaseServiceProvider extends ServiceProvider
     }
 
     /**
-     * Load the Backpack helper methods, for convenience.
+     * Load the Xylophone helper methods, for convenience.
      */
     public function loadHelpers()
     {
@@ -89,17 +89,17 @@ class BaseServiceProvider extends ServiceProvider
     }
 
     /**
-     * Backpack login differs from the standard Laravel login.
-     * As such, Backpack uses its own authentication provider, password broker and guard.
+     * Xylophone login differs from the standard Laravel login.
+     * As such, Xylophone uses its own authentication provider, password broker and guard.
      *
-     * This method adds those configuration values on top of whatever is in config/auth.php. Developers can overwrite the backpack provider, password broker or guard by adding a provider/broker/guard with the "backpack" name inside their config/auth.php file. Or they can use another provider/broker/guard entirely, by changing the corresponding value inside config/backpack/base.php
+     * This method adds those configuration values on top of whatever is in config/auth.php. Developers can overwrite the xylophone provider, password broker or guard by adding a provider/broker/guard with the "xylophone" name inside their config/auth.php file. Or they can use another provider/broker/guard entirely, by changing the corresponding value inside config/xylophone/base.php
      */
     public function addCustomAuthConfigurationValues()
     {
         // add the xylophone_users authentication provider to the configuration
         app()->config['auth.providers'] = app()->config['auth.providers'] +
         [
-            'backpack' => [
+            'xylophone' => [
                 'driver'  => 'eloquent',
                 'model'   => config('xylophone.base.user_model_fqn'),
             ],
@@ -108,8 +108,8 @@ class BaseServiceProvider extends ServiceProvider
         // add the xylophone_users password broker to the configuration
         app()->config['auth.passwords'] = app()->config['auth.passwords'] +
         [
-            'backpack' => [
-                'provider'  => 'backpack',
+            'xylophone' => [
+                'provider'  => 'xylophone',
                 'table'     => 'password_resets',
                 'expire'    => 60,
             ],
@@ -118,9 +118,9 @@ class BaseServiceProvider extends ServiceProvider
         // add the xylophone_users guard to the configuration
         app()->config['auth.guards'] = app()->config['auth.guards'] +
         [
-            'backpack' => [
+            'xylophone' => [
                 'driver'   => 'session',
-                'provider' => 'backpack',
+                'provider' => 'xylophone',
             ],
         ];
     }
@@ -137,7 +137,7 @@ class BaseServiceProvider extends ServiceProvider
         // by default, use the routes file provided in vendor
         $routeFilePathInUse = __DIR__.$this->routeFilePath;
 
-        // but if there's a file with the same name in routes/backpack, use that one
+        // but if there's a file with the same name in routes/xylophone, use that one
         if (file_exists(base_path().$this->routeFilePath)) {
             $routeFilePathInUse = base_path().$this->routeFilePath;
         }
@@ -226,7 +226,7 @@ class BaseServiceProvider extends ServiceProvider
         $adminlte_assets = [$vendorPath.'/almasaeed2010/adminlte' => public_path('vendor/adminlte')];
         $gravatar_assets = [$vendorPath.'/creativeorange/gravatar/config' => config_path()];
 
-        // establish the minimum amount of files that need to be published, for Backpack to work; there are the files that will be published by the install command
+        // establish the minimum amount of files that need to be published, for Xylophone to work; there are the files that will be published by the install command
         $minimum = array_merge(
             $error_views,
             // $xylophone_base_views,
@@ -261,7 +261,7 @@ class BaseServiceProvider extends ServiceProvider
     private function checkLicenseCodeExists()
     {
         if ($this->app->environment() != 'local' && !config('xylophone.base.license_code')) {
-            \Alert::add('warning', "<strong>You're using unlicensed software.</strong> Please ask your web developer to <a target='_blank' href='http://backpackforlaravel.com'>purchase a license code</a> to hide this message.");
+            \Alert::add('warning', "<strong>You're using unlicensed software.</strong> Please ask your web developer to <a target='_blank' href='http://xylophoneforlaravel.com'>purchase a license code</a> to hide this message.");
         }
     }
 }

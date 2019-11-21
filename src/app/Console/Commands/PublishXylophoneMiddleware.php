@@ -53,7 +53,7 @@ class PublishXylophoneMiddleware extends GeneratorCommand
     }
 
     /**
-     * Build the class. Replace Backpack namespace with App one.
+     * Build the class. Replace Xylophone namespace with App one.
      *
      * @param string $name
      *

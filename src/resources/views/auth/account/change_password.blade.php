@@ -2,7 +2,7 @@
 
 @section('after_styles')
 <style media="screen">
-    .backpack-profile-form .required::after {
+    .xylophone-profile-form .required::after {
         content: ' *';
         color: red;
     }
@@ -48,7 +48,7 @@
 
             <div class="box padding-10">
 
-                <div class="box-body backpack-profile-form">
+                <div class="box-body xylophone-profile-form">
 
                     @if (session('success'))
                         <div class="alert alert-success">

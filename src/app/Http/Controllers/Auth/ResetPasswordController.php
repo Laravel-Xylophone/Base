@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Xylophone\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Xylophone\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -56,7 +56,7 @@ class ResetPasswordController extends Controller
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading backpack views
+    // Laravel overwrites for loading xylophone views
     // -------------------------------------------------------
 
     /**

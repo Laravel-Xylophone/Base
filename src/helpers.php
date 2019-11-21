@@ -2,7 +2,7 @@
 
 if (!function_exists('xylophone_url')) {
     /**
-     * Appends the configured backpack prefix and returns
+     * Appends the configured xylophone prefix and returns
      * the URL using the standard Laravel helpers.
      *
      * @param $path
@@ -20,7 +20,7 @@ if (!function_exists('xylophone_url')) {
 if (!function_exists('xylophone_authentication_column')) {
     /**
      * Return the username column name.
-     * The Laravel default (and Backpack default) is 'email'.
+     * The Laravel default (and Xylophone default) is 'email'.
      *
      * @return string
      */
@@ -80,7 +80,7 @@ if (!function_exists('xylophone_avatar_url')) {
 
 if (!function_exists('xylophone_middleware')) {
     /**
-     * Return the key of the middleware used across Backpack.
+     * Return the key of the middleware used across Xylophone.
      * That middleware checks if the visitor is an admin.
      *
      * @param $path

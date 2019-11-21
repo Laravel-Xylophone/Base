@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers;
+namespace Xylophone\Base\app\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

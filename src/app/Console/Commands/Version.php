@@ -20,7 +20,7 @@ class Version extends Command
      *
      * @var string
      */
-    protected $description = 'Show the version of PHP and Backpack packages.';
+    protected $description = 'Show the version of PHP and Xylophone packages.';
 
     /**
      * Execute the console command.

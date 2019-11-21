@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Xylophone\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Xylophone\Base\app\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;

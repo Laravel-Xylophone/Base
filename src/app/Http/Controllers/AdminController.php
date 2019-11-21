@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers;
+namespace Xylophone\Base\app\Http\Controllers;
 
 class AdminController extends Controller
 {

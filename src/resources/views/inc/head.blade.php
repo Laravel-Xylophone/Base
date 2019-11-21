@@ -26,12 +26,12 @@
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/dist/css/skins/_all-skins.min.css">
 
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/pace/pace.min.css">
-<link rel="stylesheet" href="{{ asset('vendor/backpack/pnotify/pnotify.custom.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/xylophone/pnotify/pnotify.custom.min.css') }}">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 <!-- BackPack Base CSS -->
-<link rel="stylesheet" href="{{ asset('vendor/backpack/base/xylophone.base.css') }}?v=3">
+<link rel="stylesheet" href="{{ asset('vendor/xylophone/base/xylophone.base.css') }}?v=3">
 @if (config('xylophone.base.overlays') && count(config('xylophone.base.overlays')))
     @foreach (config('xylophone.base.overlays') as $overlay)
     <link rel="stylesheet" href="{{ asset($overlay) }}">

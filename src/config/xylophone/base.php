@@ -24,7 +24,7 @@ return [
     // Developer website. Link in footer.
     'developer_link' => 'http://tabacitu.ro',
 
-    // Show powered by Laravel Backpack in the footer?
+    // Show powered by Laravel Xylophone in the footer?
     'show_powered_by' => true,
 
     // The AdminLTE skin. Affects menu color and primary/secondary colors used throughout the application.
@@ -94,7 +94,7 @@ return [
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        // \Backpack\Base\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
+        // \Xylophone\Base\app\Http\Middleware\UseXylophoneAuthGuardInsteadOfDefaultAuthGuard::class,
     ],
 
     // Alias for that middleware
@@ -102,18 +102,18 @@ return [
     // Note: It's recommended to use the xylophone_middleware() helper everywhere, which pulls this key for you.
 
     // Username column for authentication
-    // The Backpack default is the same as the Laravel default (email)
+    // The Xylophone default is the same as the Laravel default (email)
     // If you need to switch to username, you also need to create that column in your db
     'authentication_column'      => 'email',
     'authentication_column_name' => 'Email',
 
-    // The guard that protects the Backpack admin panel.
+    // The guard that protects the Xylophone admin panel.
     // If null, the config.auth.defaults.guard value will be used.
-    'guard' => 'backpack',
+    'guard' => 'xylophone',
 
-    // The password reset configuration for Backpack.
+    // The password reset configuration for Xylophone.
     // If null, the config.auth.defaults.passwords value will be used.
-    'passwords' => 'backpack',
+    'passwords' => 'xylophone',
 
     // What kind of avatar will you like to show to the user?
     // Default: gravatar (automatically use the gravatar for his email)
@@ -128,9 +128,9 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    // Backpack\Base sets up its own filesystem disk, just like you would by
+    // Xylophone\Base sets up its own filesystem disk, just like you would by
     // adding an entry to your config/filesystems.php. It points to the root
-    // of your project and it's used throughout all Backpack packages.
+    // of your project and it's used throughout all Xylophone packages.
     //
     // You can rename this disk here. Default: root
     'root_disk_name' => 'root',
@@ -140,12 +140,12 @@ return [
     | License Code
     |--------------------------------------------------------------------------
     |
-    | If you, your employer or your client make money by using Backpack, you need
+    | If you, your employer or your client make money by using Xylophone, you need
     | to purchase a license. A license code will be provided after purchase,
     | which you can put here or in your ENV file in staging & production.
     |
     | More info and payment form on:
-    | https://www.backpackforlaravel.com
+    | https://www.xylophoneforlaravel.com
     |
     */
 

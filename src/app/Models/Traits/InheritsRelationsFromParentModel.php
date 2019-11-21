@@ -6,9 +6,9 @@ use Illuminate\Support\Str;
 use ReflectionClass;
 
 /**
- * This trait helps a child model (ex: BackpackUser) inherit all relationships of its parent model (ex: User).
- * Laravel by default doesn't do that, so packages like Backpack\PermissionManager can't see relationships
- * on the BackpackUser model, because they haven't been inherited from User.
+ * This trait helps a child model (ex: XylophoneUser) inherit all relationships of its parent model (ex: User).
+ * Laravel by default doesn't do that, so packages like Xylophone\PermissionManager can't see relationships
+ * on the XylophoneUser model, because they haven't been inherited from User.
  *
  * The code below has been copy-pasted from https://github.com/tightenco/parental on Jul 19th 2019.
  */

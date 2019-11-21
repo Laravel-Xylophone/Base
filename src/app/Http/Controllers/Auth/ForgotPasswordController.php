@@ -1,8 +1,8 @@
 <?php
 
-namespace Backpack\Base\app\Http\Controllers\Auth;
+namespace Xylophone\Base\app\Http\Controllers\Auth;
 
-use Backpack\Base\app\Http\Controllers\Controller;
+use Xylophone\Base\app\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
 
@@ -36,7 +36,7 @@ class ForgotPasswordController extends Controller
     }
 
     // -------------------------------------------------------
-    // Laravel overwrites for loading backpack views
+    // Laravel overwrites for loading xylophone views
     // -------------------------------------------------------
 
     /**

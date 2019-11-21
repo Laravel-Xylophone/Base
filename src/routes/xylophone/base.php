@@ -2,17 +2,17 @@
 
 /*
 |--------------------------------------------------------------------------
-| Backpack\Base Routes
+| Xylophone\Base Routes
 |--------------------------------------------------------------------------
 |
 | This file is where you may define all of the routes that are
-| handled by the Backpack\Base package.
+| handled by the Xylophone\Base package.
 |
 */
 
 Route::group(
 [
-    'namespace'  => 'Backpack\Base\app\Http\Controllers',
+    'namespace'  => 'Xylophone\Base\app\Http\Controllers',
     'middleware' => 'web',
     'prefix'     => config('xylophone.base.route_prefix'),
 ],
@@ -39,7 +39,7 @@ function () {
     // if not otherwise configured, setup the dashboard routes
     if (config('xylophone.base.setup_dashboard_routes')) {
         Route::get('dashboard', 'AdminController@dashboard')->name('xylophone.dashboard');
-        Route::get('/', 'AdminController@redirect')->name('backpack');
+        Route::get('/', 'AdminController@redirect')->name('xylophone');
     }
 
     // if not otherwise configured, setup the "my account" routes

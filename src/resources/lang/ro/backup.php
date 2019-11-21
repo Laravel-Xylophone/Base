@@ -4,7 +4,7 @@
 // This is only a pointer file, not an actual language file
 // --------------------------------------------------------
 //
-// If you've copied this file to your /resources/lang/vendor/backpack/
+// If you've copied this file to your /resources/lang/vendor/xylophone/
 // folder, please delete it, it's no use there. You need to copy/publish the
 // actual language file, from the package.
 

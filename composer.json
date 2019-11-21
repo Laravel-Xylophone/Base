@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Backpack\\Base\\": "src"
+            "Xylophone\\Base\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Backpack\\Base\\Test\\": "tests"
+            "Xylophone\\Base\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -50,7 +50,7 @@
         },
         "laravel": {
             "providers": [
-                "Backpack\\Base\\BaseServiceProvider"
+                "Xylophone\\Base\\BaseServiceProvider"
             ]
         }
     }

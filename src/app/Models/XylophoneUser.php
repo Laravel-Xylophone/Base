@@ -3,8 +3,8 @@
 namespace Xylophone\Base\app\Models;
 
 use App\User;
-use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
-use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
+use Xylophone\Base\app\Models\Traits\InheritsRelationsFromParentModel;
+use Xylophone\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
 class XylophoneUser extends User
 {

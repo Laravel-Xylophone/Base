@@ -20,7 +20,7 @@ class AddSidebarContent extends Command
      *
      * @var string
      */
-    protected $description = 'Add HTML/PHP code to the Backpack sidebar_content file';
+    protected $description = 'Add HTML/PHP code to the Xylophone sidebar_content file';
 
     /**
      * Create a new command instance.
