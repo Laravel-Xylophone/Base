@@ -1,68 +1,79 @@
-@extends('xylophone::layout_guest')
+@extends('xylophone::layout_guest', ['body_class' => 'login-page'])
 
 @section('content')
-    <div class="row m-t-40">
-        <div class="col-md-4 col-md-offset-4">
-            <h3 class="text-center m-b-20">{{ trans('xylophone::base.login') }}</h3>
-            <div class="box">
-                <div class="box-body">
-                    <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('xylophone.auth.login') }}">
-                        {!! csrf_field() !!}
+    <div class="login-box">
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">{{ trans('xylophone::base.login') }}</p>
 
-                        <div class="form-group{{ $errors->has($username) ? ' has-error' : '' }}">
-                            <label class="control-label">{{ config('xylophone.base.authentication_column_name') }}</label>
-
-                            <div>
-                                <input type="text" class="form-control" name="{{ $username }}" value="{{ old($username) }}">
-
-                                @if ($errors->has($username))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first($username) }}</strong>
-                                    </span>
-                                @endif
+                <form class="" action="{{ route('xylophone.auth.login') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="control-label">{{ trans('xylophone::base.password') }}</label>
-
-                            <div>
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        @if ($errors->has($username))
+                            <div class="invalid-feedback">
+                                {{ $errors->first($username) }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ trans('xylophone::base.password') }}" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> {{ trans('xylophone::base.remember_me') }}
-                                    </label>
-                                </div>
+                        @if ($errors->has('password'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('password') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    {{ trans('xylophone::base.remember_me') }}
+                                </label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div>
-                                <button type="submit" class="btn btn-block btn-primary">
-                                    {{ trans('xylophone::base.login') }}
-                                </button>
-                            </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                {{ trans('xylophone::base.login') }}
+                            </button>
                         </div>
-                    </form>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <div class="social-auth-links text-center mb-3">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                    </a>
+                    <a href="#" class="btn btn-block btn-danger">
+                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                    </a>
                 </div>
+                <!-- /.social-auth-links -->
+
+                <p class="mb-1">
+                    <a href="{{ route('xylophone.auth.password.reset') }}">{{ trans('xylophone::base.forgot_your_password') }}</a>
+                </p>
+                <p class="mb-0">
+                    <a href="{{ route('xylophone.auth.register') }}" class="text-center">
+                        {{ trans('xylophone::base.register') }}
+                    </a>
+                </p>
             </div>
-            @if (xylophone_users_have_email())
-                <div class="text-center m-t-10"><a href="{{ route('xylophone.auth.password.reset') }}">{{ trans('xylophone::base.forgot_your_password') }}</a></div>
-            @endif
-            @if (config('xylophone.base.registration_open'))
-                <div class="text-center m-t-10"><a href="{{ route('xylophone.auth.register') }}">{{ trans('xylophone::base.register') }}</a></div>
-            @endif
+            <!-- /.login-card-body -->
         </div>
     </div>
 @endsection

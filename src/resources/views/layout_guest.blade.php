@@ -3,31 +3,12 @@
 <head>
     @include('xylophone::inc.head')
 </head>
-<body class="hold-transition {{ config('xylophone.base.skin') }} fixed">
-    <!-- Site wrapper -->
-    <div class="wrapper">
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper no-margin no-padding">
-
-        <!-- Content Header (Page header) -->
-         @yield('header')
-
-        <!-- Main content -->
-        <section class="content">
-
-          @yield('content')
-
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-
-      <footer class="main-footer m-l-0 text-sm">
-        @include('xylophone::inc.footer')
-      </footer>
+<body class="hold-transition {{ config('xylophone.base.skin') }} {{ $body_class }}">
+    <div class="login-logo">
+        @yield('header')
     </div>
-    <!-- ./wrapper -->
-
+    <!-- /.login-logo -->
+    @yield('content')
 
     @yield('before_scripts')
     @stack('before_scripts')
