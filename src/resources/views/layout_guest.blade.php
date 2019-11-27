@@ -3,7 +3,7 @@
 <head>
     @include('xylophone::inc.head')
 </head>
-<body class="hold-transition {{ config('xylophone.base.skin') }} {{ $body_class }}">
+<body class="hold-transition {{ config('xylophone.base.skin') }} {{ $body_class ?? '' }}">
     <div class="login-logo">
         @yield('header')
     </div>

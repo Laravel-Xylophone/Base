@@ -6,7 +6,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">{{ trans('xylophone::base.login') }}</p>
 
-                <form class="" action="{{ route('xylophone.auth.login') }}" method="POST">
+                <form class="" action="{{ route('xylophone.auth.login') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}" required>
