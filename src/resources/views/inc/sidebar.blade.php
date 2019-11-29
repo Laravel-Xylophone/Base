@@ -1,4 +1,6 @@
 @if (xylophone_auth()->check())
+    <?php
+    /*
     <!-- Left side column. contains the sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
@@ -21,11 +23,13 @@
       </section>
       <!-- /.sidebar -->
     </aside>
+    */
+    ?>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ url('') }}" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="dist/img/AdminLTELogo.png" class="brand-image img-circle elevation-3">
             <span class="brand-text font-weight-light">{{ config('xylophone.base.project_name') }}</span>
         </a>
 
@@ -34,10 +38,10 @@
                         <!-- Sidebar user panel (optional) -->
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                             <div class="image">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                                <img src="{{ xylophone_avatar_url(xylophone_user()) }}" class="img-circle elevation-2">
                             </div>
                             <div class="info">
-                                <a href="#" class="d-block">Alexander Pierce</a>
+                                <a href="#" class="d-block">{!! xylophone_user()->name !!}</a>
                             </div>
                         </div>
 

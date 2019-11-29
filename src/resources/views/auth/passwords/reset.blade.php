@@ -15,7 +15,7 @@
                         {!! csrf_field() !!}
                         <input type="hidden" name="token" value="{{ $token }}">
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="{{ trans('xylophone::base.email_address') }}">
+                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="{{ trans('xylophone::base.email_address') }}" required autofocus>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -28,7 +28,7 @@
                             @endif
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ trans('xylophone::base.new_password') }}">
+                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ trans('xylophone::base.new_password') }}" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -41,7 +41,7 @@
                             @endif
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" placeholder="{{ trans('xylophone::base.confirm_new_password') }}">
+                            <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" placeholder="{{ trans('xylophone::base.confirm_new_password') }}" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

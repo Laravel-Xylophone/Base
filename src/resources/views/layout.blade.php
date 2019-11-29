@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     @include('xylophone::inc.head')
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 </head>
 <body class="hold-transition {{ config('xylophone.base.skin') }} sidebar-mini">
 	<script type="text/javascript">

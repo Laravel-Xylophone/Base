@@ -9,7 +9,7 @@
                 <form action="{{ route('xylophone.auth.register') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="{{ trans('xylophone::base.name') }}">
+                        <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="{{ trans('xylophone::base.name') }}" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -22,7 +22,7 @@
                         @endif
                     </div>
                     <div class="input-group mb-3">
-                        <input type="{{ xylophone_authentication_column()=='email'?'email':'text'}}" class="form-control{{ $errors->has(xylophone_authentication_column()) ? ' is-invalid' : '' }}" name="{{ xylophone_authentication_column() }}" value="{{ old(xylophone_authentication_column()) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}">
+                        <input type="{{ xylophone_authentication_column()=='email'?'email':'text'}}" class="form-control{{ $errors->has(xylophone_authentication_column()) ? ' is-invalid' : '' }}" name="{{ xylophone_authentication_column() }}" value="{{ old(xylophone_authentication_column()) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -35,7 +35,7 @@
                         @endif
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ trans('xylophone::base.password') }}">
+                        <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ trans('xylophone::base.password') }}" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -48,7 +48,7 @@
                         @endif
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" placeholder="{{ trans('xylophone::base.confirm_password') }}">
+                        <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" placeholder="{{ trans('xylophone::base.confirm_password') }}" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

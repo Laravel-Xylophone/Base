@@ -9,7 +9,7 @@
                 <form class="" action="{{ route('xylophone.auth.login') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}" required>
+                        <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) }}" placeholder="{{ config('xylophone.base.authentication_column_name') }}" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
